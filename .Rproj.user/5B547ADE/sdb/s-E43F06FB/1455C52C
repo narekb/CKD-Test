@@ -1,0 +1,17 @@
+{
+    "contents" : "library(caret)\nlibrary(caTools)\nlibrary(ROCR)\nlibrary(class)\n\nModelData <- read.csv(\"CKD Screening Data for Model Building.csv\")\nTestData <- read.csv(\"CKD Screening Data for Testing.csv\")\n\nModelData$ID <- NULL\nTestData$ID <- NULL\n\nModelData$X <- NULL\nTestData$X <- NULL\n\n#Keep separate copy of datasets, start factorizing variables in new copies\nModelDataFactored <- ModelData\nTestDataFactored <- TestData\n\nsource(\"Model-Factorize.R\")\nsource(\"Test-Factorize.R\")\n\nModelDataFactored <- na.omit(ModelDataFactored)\nTestDataFactored <- na.omit(TestDataFactored)\n\n#STEP 1: Logistic regression\nsource(\"LogRes.R\")\n\n\n#STEP 2: KNN\nsource(\"KNN.R\")\n\n#STEP 3: LDA\n\n",
+    "created" : 1449516644532.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3078407727",
+    "id" : "1455C52C",
+    "lastKnownWriteTime" : 1449521576,
+    "path" : "C:/Users/babaj/Desktop/Code/CKD-Tessilk/CKD-Test.R",
+    "project_path" : "CKD-Test.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
