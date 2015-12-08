@@ -1,0 +1,18 @@
+{
+    "contents" : "ModelData <- na.omit(ModelData)\nModelDataScaled <- ModelData\n\n\nModelDataScaled <- ModelDataFactored\n\nModelDataScaled <- sapply(ModelDataScaled, as.numeric)\nModelDataScaled <- as.data.frame(scale(ModelDataScaled))\n\n\nindex <- createDataPartition(ModelDataFactored$CKD, p = 0.75, list = FALSE)\ntraining <- ModelDataScaled[index,]\ntesting <- ModelDataScaled[-index,]\n\nKNN <- knn(training, testing, cl = training$CKD, k = 3)\n\n\n#Now let's try finding the best k\nctrl <- trainControl(method = \"repeatedcv\", number = 3, repeats = 3)\nknnFit <- train(CKD~., data = training, method = \"knn\", trControl = ctrl, tuneLength = 20)\nknnFit\nprint(\"Final value of k = 27\")\n\ntraining$CKD <- factor(training$CKD, labels = c(\"Yes\", \"No\"), levels=c(1,0))\n\nKNN_Final <- knn(training, testing, cl = training$CKD, k = 27)\ntable(testing$CKD, KNN_Final)\nconfusionMatrix(KNN_Final, testing$CKD)\n\nprint(\"K-Nearest Neighbors results:\")\nprint(\"Accuracy: 98%\")\nprint(\"Sensitivity: 100% (overfitting?)\")\nprint(\"Specificity: 77%\")\n\n\ntraining <- NULL\ntesting <- NULL",
+    "created" : 1449517003349.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3533354873",
+    "id" : "2F660654",
+    "lastKnownWriteTime" : 1449566150,
+    "path" : "C:/Users/babaj/Desktop/Code/CKD-Tessilk/KNN.R",
+    "project_path" : "KNN.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

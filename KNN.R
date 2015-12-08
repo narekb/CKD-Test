@@ -2,10 +2,9 @@ ModelData <- na.omit(ModelData)
 ModelDataScaled <- ModelData
 
 
-#nums <- sapply(ModelDataFactored, is.numeric)
-#ModelDataScaled <- as.data.frame(scale(ModelData[, nums]))
+ModelDataScaled <- ModelDataFactored
 
-ModelDataScaled <- sapply(ModelDataFactored, as.numeric)
+ModelDataScaled <- sapply(ModelDataScaled, as.numeric)
 ModelDataScaled <- as.data.frame(scale(ModelDataScaled))
 
 
@@ -20,16 +19,18 @@ KNN <- knn(training, testing, cl = training$CKD, k = 3)
 ctrl <- trainControl(method = "repeatedcv", number = 3, repeats = 3)
 knnFit <- train(CKD~., data = training, method = "knn", trControl = ctrl, tuneLength = 20)
 knnFit
-print("Final value of k = 41")
+print("Final value of k = 27")
 
-KNN_Final <- knn(training, testing, cl = training$CKD, k = 19)
+training$CKD <- factor(training$CKD, labels = c("Yes", "No"), levels=c(1,0))
+
+KNN_Final <- knn(training, testing, cl = training$CKD, k = 27)
 table(testing$CKD, KNN_Final)
 confusionMatrix(KNN_Final, testing$CKD)
 
 print("K-Nearest Neighbors results:")
 print("Accuracy: 98%")
 print("Sensitivity: 100% (overfitting?)")
-print("Specificity: 83%")
+print("Specificity: 77%")
 
 
 training <- NULL

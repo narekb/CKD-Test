@@ -1,0 +1,25 @@
+{
+    "contents" : "",
+    "created" : 1449565051817.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "2595506D",
+    "lastKnownWriteTime" : 1449564942,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "5c0jcuzelx",
+        "caption" : "ModelDataFactored",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=ModelDataFactored&cache_key=5c0jcuzelx",
+        "displayedObservations" : "4136",
+        "environment" : "",
+        "object" : "ModelDataFactored",
+        "totalObservations" : "4136",
+        "variables" : "33"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}

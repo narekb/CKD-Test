@@ -2,6 +2,8 @@ library(caret)
 library(caTools)
 library(ROCR)
 library(class)
+library(MASS)
+library(e1071)
 
 ModelData <- read.csv("CKD Screening Data for Model Building.csv")
 TestData <- read.csv("CKD Screening Data for Testing.csv")
@@ -30,4 +32,4 @@ source("LogRes.R")
 source("KNN.R")
 
 #STEP 3: LDA
-
+source("LDA.R")
