@@ -12,14 +12,12 @@ index <- createDataPartition(ModelDataFactored$CKD, p = 0.75, list = FALSE)
 training <- ModelDataScaled[index,]
 testing <- ModelDataScaled[-index,]
 
-KNN <- knn(training, testing, cl = training$CKD, k = 3)
-
 
 #Now let's try finding the best k
 ctrl <- trainControl(method = "repeatedcv", number = 3, repeats = 3)
 knnFit <- train(CKD~., data = training, method = "knn", trControl = ctrl, tuneLength = 20)
 knnFit
-print("Final value of k = 27")
+print("Final value of k = 19")
 
 #training$CKD <- factor(training$CKD, labels = c("Yes", "No"), levels=c(1,0))
 #testing$CKD <- factor(testing$CKD, labels = c("Yes", "No"), levels=c(1,0))

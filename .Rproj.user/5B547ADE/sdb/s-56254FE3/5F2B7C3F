@@ -1,0 +1,18 @@
+{
+    "contents" : "set.seed(0007)\nindex <- createDataPartition(ModelDataFactored$CKD, p = 0.85, list = FALSE)\ntraining <- ModelDataFactored[index,]\ntesting <- ModelDataFactored[-index,]\n\ncTree <- ctree(CKD~., data = training)\ncTree\nplot(cTree, main = \"Conditional Inference Tree\")\n#/Plots/CTree.pdf\n\npredVector <- predict(cTree, newdata = testing)\ntable <- table(predVector, testing$CKD)\nconfusionMatrix(table, positive = \"No\")\n\nprint(\"CTree results:\")\nprint(\"Accuracy: 93.7%\")\nprint(\"Sensitivity: 100%\")\nprint(\"Specificity: 0%\")",
+    "created" : 1449659257181.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2846157165",
+    "id" : "5F2B7C3F",
+    "lastKnownWriteTime" : 1449660000,
+    "path" : "C:/Users/babaj/Desktop/Code/CKD-Tessilk/CTree.R",
+    "project_path" : "CTree.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

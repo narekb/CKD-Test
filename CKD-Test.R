@@ -5,7 +5,10 @@ library(class)
 library(MASS)
 library(e1071)
 library(rpart)
+library(rpart.plot)
 library(rattle)
+library(randomForest)
+library(party)
 
 ModelData <- read.csv("CKD Screening Data for Model Building.csv")
 TestData <- read.csv("CKD Screening Data for Testing.csv")
@@ -36,5 +39,11 @@ source("KNN.R")
 #STEP 3: LDA
 source("LDA.R")
 
-#STEP 4: Decision Tree
-source("DR.R")
+#STEP 4: Random Forest
+source("RandomForest.R")
+
+#STEP 5: Decision Tree
+source("DecistionTree.R")
+
+#STEP 6: CTree
+source("CTree.R")

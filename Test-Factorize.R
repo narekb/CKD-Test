@@ -9,6 +9,9 @@ TestDataFactored$Dyslipidemia <- factor(TestDataFactored$Dyslipidemia, levels = 
 
 TestDataFactored$PVD <- factor(TestDataFactored$PVD, levels = c(0, 1), labels = c("No", "Yes"))
 
+TestDataFactored$Diabetes <- factor(TestDataFactored$Diabetes, levels = c(0, 1), labels = c("No", "Yes"))
+TestDataFactored$Fam.Diabetes <- factor(TestDataFactored$Fam.Diabetes, levels = c(0, 1), labels = c("No", "Yes"))
+
 TestDataFactored$Activity <- factor(TestDataFactored$Activity, levels = c(1, 2, 3, 4), labels = c("Sit", "Walk", "Light", "Heavy"))
 TestDataFactored$PoorVision <- factor(TestDataFactored$PoorVision, levels = c(0, 1), labels = c("No", "Yes"))
 TestDataFactored$Smoker <- factor(TestDataFactored$Smoker, levels = c(0, 1), labels = c("No", "Yes"))
