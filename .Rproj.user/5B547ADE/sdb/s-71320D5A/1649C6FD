@@ -1,0 +1,18 @@
+{
+    "contents" : "set.seed(0305)\nindex <- createDataPartition(ModelDataFactored$CKD, p = 0.75, list = FALSE)\ntraining <- ModelDataFactored[index,]\ntesting <- ModelDataFactored[-index,]\n\n##LINEAR KERNEL\n\nobj_linear <- best.tune(svm, CKD~., data = training, kernel = \"linear\")\nobj_linear\n\nSVM_linear <- svm(CKD~., data = training, kernel = \"linear\", gamma = 0.02564103, cost = 1)\npredVector1 <- predict(SVM_linear, newdata = testing)\ntable1 <- table(predVector1, testing$CKD)\n\nconfusionMatrix(table1, positive = \"No\")\n\nprint(\"Support Vector Machines (linear) results:\")\nprint(\"Accuracy: 93.6%\")\nprint(\"Sensitivity: 100%\")\nprint(\"Specificity: 0%\")\n\nTestDataSVMLinear <- TestDataFactored\nTestDataSVMLinear$CKD <- predict(SVM_linear, newdata = TestDataSVMLinear)\nwrite.csv(TestDataSVMLinear, file = \"SVM_Linear.csv\", row.names = F, quote = F)\n\n##RADIAL KERNEL\n\nobj_radial <- best.tune(svm, CKD~., data = training, kernel = \"radial\")\nobj_radial\n\nSVM_radial <- svm(CKD~., data = training, kernel = \"radial\", gamma = 0.02564103, cost = 1)\npredVector2 <- predict(SVM_radial, newdata = testing)\ntable2 <- table(predVector1, testing$CKD)\nconfusionMatrix(table2, positive = \"No\")\n\nprint(\"Support Vector Machines (radial) results:\")\nprint(\"Accuracy: 93.6%\")\nprint(\"Sensitivity: 100%\")\nprint(\"Specificity: 0%\")\n\nTestDataSVMRadial <- TestDataFactored\nTestDataSVMRadial$CKD <- predict(SVM_radial, newdata = TestDataSVMRadial)\nwrite.csv(TestDataSVMRadial, file = \"SVM_Radial.csv\", row.names = F, quote = F)\n\n##POLYNOMIAL KERNEL\n\nobj_polynomial <- best.tune(svm, CKD~., data = training, kernel = \"polynomial\")\nobj_polynomial\n\nSVM_polynomial <- svm(CKD~., data = training, kernel = \"polynomial\", gamma = 0.02564103, cost = 1, degree = 3, coef.0 = 0)\npredVector3 <- predict(SVM_polynomial, newdata = testing)\ntable3 <- table(predVector3, testing$CKD)\nconfusionMatrix(table3, positive = \"No\")\n\nprint(\"Support Vector Machines (polynomial) results:\")\nprint(\"Accuracy: 93.6%\")\nprint(\"Sensitivity: 100%\")\nprint(\"Specificity: 0%\")\n\nTestDataSVMPolynomial <- TestDataFactored\nTestDataSVMPolynomial$CKD <- predict(SVM_polynomial, newdata = TestDataSVMPolynomial)\nwrite.csv(TestDataSVMPolynomial, file = \"SVM_Polynomial.csv\", row.names = F, quote = F)\n\n\n##SIGMOID KERNEL\nobj_sigmoid <- best.tune(svm, CKD~., data = training, kernel = \"sigmoid\")\nobj_sigmoid\n\nSVM_sigmoid <- svm(CKD~., data = training, kernel = \"sigmoid\", gamma = 0.02564103, cost = 1, coef.0 = 0)\npredVector4 <- predict(SVM_sigmoid, newdata = testing)\n\ntable4 <- table(predVector4, testing$CKD)\nconfusionMatrix(table4, positive = \"No\")\n\nprint(\"Support Vector Machines (sigmoid) results:\")\nprint(\"Accuracy: 91.5%\")\nprint(\"Sensitivity: 97.1%\")\nprint(\"Specificity: 10.6%\")\n\nTestDataSVMSigmoid <- TestDataFactored\nTestDataSVMSigmoid$CKD <- predict(SVM_sigmoid, newdata = TestDataSVMSigmoid)\nwrite.csv(TestDataSVMSigmoid, file = \"SVM_Sigmoid.csv\", row.names = F, quote = F)\n\n",
+    "created" : 1449670206624.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2002405846",
+    "id" : "1649C6FD",
+    "lastKnownWriteTime" : 1449672755,
+    "path" : "C:/Users/babaj/Desktop/Code/CKD-Tessilk/SVM.R",
+    "project_path" : "SVM.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
