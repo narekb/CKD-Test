@@ -1,11 +1,11 @@
 ModelData <- na.omit(ModelData)
-ModelDataScaled <- ModelData
 
 
 ModelDataScaled <- ModelDataFactored
 
-ModelDataScaled <- sapply(ModelDataScaled, as.numeric)
-ModelDataScaled <- as.data.frame(scale(ModelDataScaled))
+ModelDataScaled <- sapply(ModelDataScaled[,-33], as.numeric)
+ModelDataScaled <- as.data.frame(scale(ModelDataScaled[,-33]))
+ModelDataScaled$CKD <- ModelDataFactored$CKD
 
 
 index <- createDataPartition(ModelDataFactored$CKD, p = 0.75, list = FALSE)
@@ -21,16 +21,17 @@ knnFit <- train(CKD~., data = training, method = "knn", trControl = ctrl, tuneLe
 knnFit
 print("Final value of k = 27")
 
-training$CKD <- factor(training$CKD, labels = c("Yes", "No"), levels=c(1,0))
+#training$CKD <- factor(training$CKD, labels = c("Yes", "No"), levels=c(1,0))
+#testing$CKD <- factor(testing$CKD, labels = c("Yes", "No"), levels=c(1,0))
 
-KNN_Final <- knn(training, testing, cl = training$CKD, k = 27)
+KNN_Final <- knn(training[,-33], testing[,-33], cl = training$CKD, k = 19)
 table(testing$CKD, KNN_Final)
 confusionMatrix(KNN_Final, testing$CKD)
 
 print("K-Nearest Neighbors results:")
-print("Accuracy: 98%")
-print("Sensitivity: 100% (overfitting?)")
-print("Specificity: 77%")
+print("Accuracy: 93%")
+print("Sensitivity: 99%")
+print("Specificity: 0%")
 
 
 training <- NULL

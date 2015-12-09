@@ -4,7 +4,7 @@ index <- createDataPartition(ModelDataFactored$CKD, p = 0.75, list = FALSE)
 training <- ModelDataFactored[index,]
 testing <- ModelDataFactored[-index,]
 
-LogRes <- glm(CKD~.-ID, data = training, family="binomial")
+LogRes <- glm(CKD~., data = training, family="binomial")
 summary(LogRes)
 
 predVector <- predict(LogRes, newdata = testing, type = "response") #Seems like we have rank deficiency

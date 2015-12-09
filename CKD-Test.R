@@ -4,6 +4,8 @@ library(ROCR)
 library(class)
 library(MASS)
 library(e1071)
+library(rpart)
+library(rattle)
 
 ModelData <- read.csv("CKD Screening Data for Model Building.csv")
 TestData <- read.csv("CKD Screening Data for Testing.csv")
@@ -33,3 +35,6 @@ source("KNN.R")
 
 #STEP 3: LDA
 source("LDA.R")
+
+#STEP 4: Decision Tree
+source("DR.R")
