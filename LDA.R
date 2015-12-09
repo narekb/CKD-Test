@@ -27,6 +27,13 @@ print("Accuracy: 91%")
 print("Sensitivity: 95%")
 print("Specificity: 28%")
 
+newPred <- predict(LDA, newdata = TestDataLDA)
+TestDataLDA <- TestDataFactored
+TestDataLDA$CKD <- newPred$class
+
+
+write.csv(TestDataLDA, file = "LDA.csv", row.names = F, quote = F)
+
 training <- NULL
 testing <- NULL
 ModelDataNum <- NULL

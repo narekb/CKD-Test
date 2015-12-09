@@ -1,3 +1,4 @@
+set.seed(0305)
 index <- createDataPartition(ModelDataFactored$CKD, p = 0.75, list = FALSE)
 training <- ModelDataFactored[index,]
 testing <- ModelDataFactored[-index,]
@@ -20,4 +21,11 @@ confusionMatrix(table, positive = "No")
 print("Random Forest results:")
 print("Accuracy: 93%")
 print("Sensitivity: 99.8%")
-print("Specificity: 1%")
+print("Specificity: 0%")
+
+
+TestDataRF <- TestDataFactored
+TestDataRF$CKD <- predict(rf, newdata = TestDataRF, type="class")
+write.csv(TestDataRF, file = "RandomForest.csv", row.names = F, quote = F)
+
+TestDataRF <- NULL

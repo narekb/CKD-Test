@@ -21,10 +21,17 @@ areaUnderCurve <- performance(pred, "auc")@y.values
 print("Logistic regression results:")
 print("Accuracy: 93%")
 print("Sensitivity: 98.6%")
-print("Specificity: 12%")
+print("Specificity: 13.6%")
 print("Area Under Curve: 89%")
 #Out-of-the-box logistic regression gives an area under the curve of 0.8912601. Not bad, needs more work
+
+TestDataLR <- TestDataFactored
+TestDataLR$CKD <- predict(LogRes, newdata = TestDataLR, type="response")
+write.csv(TestDataLR, file = "LogisticRegression.csv", row.names = F, quote = F)
 
 #We'll need to reuse names, delete old datasets
 training <- NULL
 testing <- NULL
+
+TestDataLR <- NULL
+

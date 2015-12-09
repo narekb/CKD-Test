@@ -16,3 +16,9 @@ print("CTree results:")
 print("Accuracy: 93.7%")
 print("Sensitivity: 100%")
 print("Specificity: 0%")
+
+TestDataCT <- TestDataFactored
+TestDataCT$CKD <- predict(cTree, newdata = TestDataCT)
+write.csv(TestDataCT, file = "CTree.csv", row.names = F, quote = F)
+
+TestDataCT <- NULL

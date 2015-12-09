@@ -25,6 +25,10 @@ print("Accuracy: 93%")
 print("Sensitivity: 97.6%")
 print("Specificity: 25%")
 
+TestDataDT1 <- TestDataFactored
+TestDataDT1$CKD <- predict(decTree, newdata = TestDataDT1, type = "class")
+write.csv(TestDataDT1, file = "DecisionTreeUnpruned.csv", row.names = F, quote = F)
+
 predVector2 <- predict(decTreePruned, newdata = testing, type = "class")
 table2 <- table(predVector2, testing$CKD)
 confusionMatrix(table2, positive = "No")
@@ -34,8 +38,13 @@ print("Accuracy: 92.7%")
 print("Sensitivity: 98.2%")
 print("Specificity: 10%")
 
+TestDataDT2 <- TestDataFactored
+TestDataDT2$CKD <- predict(decTreePruned, newdata = TestDataDT2, type = "class")
+write.csv(TestDataDT2, file = "DecisionTreePruned.csv", row.names = F, quote = F)
+
 table1 <- NULL
 table2 <- NULL
-
+TestDataDT2 <- NULL
+TestDataDT1 <- NULL
 
 
