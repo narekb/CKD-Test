@@ -7,9 +7,7 @@ RFS <- rfsrc(CKD~., data = training, ntree = 1000)
 plot(RFS)
 #/Plots/RFS.pdf
 
-predVector <- predict(RFS, newdata = testing, type = "class")
-predVector
+predVector <- predict.rfsrc(RFS, newdata = testing, type = "class")
+predVector$predicted
 
-
-TestDataRFS <- TestDataFactored
-TestDataRFS$CKD <- 
+#This technique was used merely for the plot

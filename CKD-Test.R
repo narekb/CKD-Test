@@ -44,32 +44,32 @@ TestDataFactored <- TestData
 source("Model-Factorize.R")
 source("Test-Factorize.R")
 
-#STEP 0: Random Forest of Survival
+#STEP 0: Random Forest of Survival - Erik
 source("RFS.R")
 
-#STEP 1: Random Forest
+#STEP 1: Random Forest - Erik
 source("RandomForest.R")
 
-#STEP 2: Logistic regression
+#STEP 2: Logistic regression - Narek
 source("LogRes.R")
 
-#STEP 3: KNN
+#STEP 3: KNN - Karen
 source("KNN.R")
 
-#STEP 4: LDA
+#STEP 4: LDA - Karen
 source("LDA.R")
 
-#STEP 5: Decision Tree
+#STEP 5: Decision Tree - Erik
 source("DecistionTree.R")
 
-#STEP 6: CTree
+#STEP 6: CTree - Erik
 source("CTree.R")
 
-#STEP 7: XGBoost
+#STEP 7: SVM - Narek
 source("SVM.R")
 
-#STEP 8: Naive Bayes
+#STEP 8: Naive Bayes - Karen
 source("NaiveBayes.R")
 
-#STEP 9: Neural Networks
+#STEP 9: Neural Networks - Narek
 source("NeuralNet.R")
