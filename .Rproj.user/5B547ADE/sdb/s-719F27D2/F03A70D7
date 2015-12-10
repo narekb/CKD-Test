@@ -1,0 +1,18 @@
+{
+    "contents" : "set.seed(0007)\nindex <- createDataPartition(ModelDataFactored$CKD, p = 0.75, list = FALSE)\ntraining <- ModelDataFactored[index,]\ntesting <- ModelDataFactored[-index,]\n\nRFS <- rfsrc(CKD~., data = training, ntree = 1000)\nplot(RFS)\n#/Plots/RFS.pdf\n\npredVector <- predict.rfsrc(RFS, newdata = testing, type = \"class\")\npredVector$predicted[,1]\n\n\nTestDataRFS <- TestDataFactored\nTestDataRFS$CKD <- ",
+    "created" : 1449739217983.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2128421648",
+    "id" : "F03A70D7",
+    "lastKnownWriteTime" : 1449740308,
+    "path" : "C:/Users/babaj/Desktop/Code/CKD-Tessilk/RFS.R",
+    "project_path" : "RFS.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

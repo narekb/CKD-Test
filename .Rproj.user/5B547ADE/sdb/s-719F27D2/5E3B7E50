@@ -1,0 +1,17 @@
+{
+    "contents" : "ModelDataFactored$Female <- factor(ModelDataFactored$Female, levels = c(0, 1), labels = c(\"No\", \"Yes\"))\nModelDataFactored$Educ <- factor(ModelDataFactored$Educ, levels = c(0, 1), labels = c(\"HighSchool\", \"Above\"))\nModelDataFactored$Unmarried <- factor(ModelDataFactored$Unmarried, levels = c(0, 1), labels = c(\"No\", \"Yes\"))\nModelDataFactored$Income <- factor(ModelDataFactored$Income, levels = c(0, 1), labels = c(\"BelowMedian\", \"AboveMedian\"))\n\nModelDataFactored$Insured <- factor(ModelDataFactored$Insured, levels = c(0, 1), labels = c(\"No\", \"Yes\"))\nModelDataFactored$Obese <- factor(ModelDataFactored$Obese, levels = c(0, 1), labels = c(\"No\", \"Yes\"))\nModelDataFactored$Dyslipidemia <- factor(ModelDataFactored$Dyslipidemia, levels = c(0, 1), labels = c(\"No\", \"Yes\"))\nModelDataFactored$PVD <- factor(ModelDataFactored$PVD, levels = c(0, 1), labels = c(\"No\", \"Yes\"))\n\nModelDataFactored$Diabetes <- factor(ModelDataFactored$Diabetes, levels = c(0, 1), labels = c(\"No\", \"Yes\"))\nModelDataFactored$Fam.Diabetes <- factor(ModelDataFactored$Fam.Diabetes, levels = c(0, 1), labels = c(\"No\", \"Yes\"))\n\nModelDataFactored$Activity <- factor(ModelDataFactored$Activity, levels = c(1, 2, 3, 4), labels = c(\"Sit\", \"Walk\", \"Light\", \"Heavy\"))\nModelDataFactored$PoorVision <- factor(ModelDataFactored$PoorVision, levels = c(0, 1), labels = c(\"No\", \"Yes\"))\nModelDataFactored$Smoker <- factor(ModelDataFactored$Smoker, levels = c(0, 1), labels = c(\"No\", \"Yes\"))\nModelDataFactored$Hypertension <- factor(ModelDataFactored$Hypertension, levels = c(0, 1), labels = c(\"No\", \"Yes\"))\n\nModelDataFactored$Fam.Hypertension <- factor(ModelDataFactored$Fam.Hypertension, levels = c(0, 1), labels = c(\"No\", \"Yes\"))\nModelDataFactored$Stroke <- factor(ModelDataFactored$Stroke, levels = c(0, 1), labels = c(\"No\", \"Yes\"))\nModelDataFactored$CVD <- factor(ModelDataFactored$CVD, levels = c(0, 1), labels = c(\"No\", \"Yes\"))\nModelDataFactored$Fam.CVD <- factor(ModelDataFactored$Fam.CVD, levels = c(0, 1), labels = c(\"No\", \"Yes\"))\n\nModelDataFactored$CHF <- factor(ModelDataFactored$CHF, levels = c(0, 1), labels = c(\"No\", \"Yes\"))\nModelDataFactored$Anemia <- factor(ModelDataFactored$Anemia, levels = c(0, 1), labels = c(\"No\", \"Yes\"))\nModelDataFactored$CKD <- factor(ModelDataFactored$CKD, levels = c(0, 1), labels = c(\"No\", \"Yes\"))\n",
+    "created" : 1449738115810.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4157771614",
+    "id" : "5E3B7E50",
+    "lastKnownWriteTime" : 1449652071,
+    "path" : "C:/Users/babaj/Desktop/Code/CKD-Tessilk/Model-Factorize.R",
+    "project_path" : "Model-Factorize.R",
+    "properties" : {
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

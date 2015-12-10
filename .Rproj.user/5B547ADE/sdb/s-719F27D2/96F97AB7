@@ -1,0 +1,18 @@
+{
+    "contents" : "set.seed(0305)\nindex <- createDataPartition(ModelDataFactored$CKD, p = 0.75, list = FALSE)\ntraining <- ModelDataFactored[index,]\ntesting <- ModelDataFactored[-index,]\n\nrf.tuning <- tuneRF(training[,-33], training$CKD, stepFactor=1.5)\nrf <- randomForest(CKD~., data = training, ntree = 1000, mtry = 5)\n#Tuning doesn't yield any productive results. Error = 0.05%\n#Tuning plot included (/Plots/RF_tune.png)\n\n#Plotting variable importance (/Plots/RF_varImp.png)\nvarImpPlot(rf, main = \"Variable importance\")\n\n\npredVector <- predict(rf, newdata = testing)\npredVector\ntable <- table(predVector, testing$CKD)\nconfusionMatrix(table, positive = \"No\")\n\n#100 - 0 also possible, since results fluctuate on every creation of a forest (by 0.5% approximately)\nprint(\"Random Forest results:\")\nprint(\"Accuracy: 93%\")\nprint(\"Sensitivity: 99.8%\")\nprint(\"Specificity: 0%\")\n\n\nTestDataRF <- TestDataFactored\nTestDataRF$CKD <- predict(rf, newdata = TestDataRF, type=\"class\")\nwrite.csv(TestDataRF, file = \"RandomForest.csv\", row.names = F, quote = F)\n\nTestDataRF <- NULL\n",
+    "created" : 1449739449140.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1576999458",
+    "id" : "96F97AB7",
+    "lastKnownWriteTime" : 1449664065,
+    "path" : "C:/Users/babaj/Desktop/Code/CKD-Tessilk/RandomForest.R",
+    "project_path" : "RandomForest.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

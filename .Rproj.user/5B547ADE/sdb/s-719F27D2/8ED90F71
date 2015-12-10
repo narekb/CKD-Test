@@ -1,0 +1,17 @@
+{
+    "contents" : "#Even though we have a separate test dataset, we have to divite Model data into training and testing sets.\nset.seed(0305)\nindex <- createDataPartition(ModelDataFactored$CKD, p = 0.75, list = FALSE)\ntraining <- ModelDataFactored[index,]\ntesting <- ModelDataFactored[-index,]\n\nLogRes <- glm(CKD~., data = training, family=\"binomial\")\nsummary(LogRes)\n\npredVector <- predict(LogRes, newdata = testing, type = \"response\") #Seems like we have rank deficiency\n\ntable <- table(Predicted = predVector > 0.5, Actual = (testing$CKD == \"Yes\"))\nconfusionMatrix(table)\n\npred <- prediction(predVector, testing$CKD)\nperf <- performance(pred, \"tpr\", \"fpr\")\nplot(perf)\n\nareaUnderCurve <- performance(pred, \"auc\")@y.values\n\nprint(\"Logistic regression results:\")\nprint(\"Accuracy: 93%\")\nprint(\"Sensitivity: 98.6%\")\nprint(\"Specificity: 13.6%\")\nprint(\"Area Under Curve: 89%\")\n#Out-of-the-box logistic regression gives an area under the curve of 0.8912601. Not bad, needs more work\n\nTestDataLR <- TestDataFactored\nTestDataLR$CKD <- predict(LogRes, newdata = TestDataLR, type=\"response\")\nwrite.csv(TestDataLR, file = \"LogisticRegression.csv\", row.names = F, quote = F)\n\n#We'll need to reuse names, delete old datasets\ntraining <- NULL\ntesting <- NULL\n\nTestDataLR <- NULL\n\n",
+    "created" : 1449664464390.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3904973236",
+    "id" : "8ED90F71",
+    "lastKnownWriteTime" : 1449669955,
+    "path" : "C:/Users/babaj/Desktop/Code/CKD-Tessilk/LogRes.R",
+    "project_path" : "LogRes.R",
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

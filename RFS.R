@@ -1,0 +1,15 @@
+set.seed(0007)
+index <- createDataPartition(ModelDataFactored$CKD, p = 0.75, list = FALSE)
+training <- ModelDataFactored[index,]
+testing <- ModelDataFactored[-index,]
+
+RFS <- rfsrc(CKD~., data = training, ntree = 1000)
+plot(RFS)
+#/Plots/RFS.pdf
+
+predVector <- predict(RFS, newdata = testing, type = "class")
+predVector
+
+
+TestDataRFS <- TestDataFactored
+TestDataRFS$CKD <- 

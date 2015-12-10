@@ -7,10 +7,11 @@ library(e1071)
 library(rpart)
 library(rpart.plot)
 library(rattle)
-library(randomForest3333333)
+library(randomForest)
 library(party)
 library(kernlab)
 library(neuralnet)
+library(randomForestSRC)
 
 ModelData <- read.csv("CKD Screening Data for Model Building.csv")
 TestData <- read.csv("CKD Screening Data for Testing.csv")
@@ -43,6 +44,8 @@ TestDataFactored <- TestData
 source("Model-Factorize.R")
 source("Test-Factorize.R")
 
+#STEP 0: Random Forest of Survival
+source("RFS.R")
 
 #STEP 1: Random Forest
 source("RandomForest.R")
